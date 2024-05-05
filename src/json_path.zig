@@ -36,7 +36,10 @@ fn next(val: json.Value, idx: anytype) JsonPathError!json.Value {
                 else => return JsonPathError.ValueIsNotArray,
             }
         },
-        .Pointer => |key| if (key.size == .One and key.is_const) {
+        // Match a string -- see the removed stdlib.meta.traits.isZigString
+        .Pointer => |key| if (key.is_volatile or key.is_allowzero) {
+            @compileError("Invalid type in path: '" ++ @typeName(@TypeOf(idx)) ++ "'");
+        } else if (key.size == .One and key.is_const) {
             // Check if it's a static string
             switch (@typeInfo(key.child)) {
                 .Array => |x| if (x.child == u8) {
