@@ -246,13 +246,13 @@ test "jsonpath" {
         \\  "float": 0.125,
         \\  "int": 25,
         \\  "array": [
-        \\      {
-        \\          "some": {
-        \\              "nested": {
-        \\                  "json": "value"
-        \\              }
-        \\          }
+        \\    {
+        \\      "some": {
+        \\        "nested": {
+        \\          "json": "value"
+        \\        }
         \\      }
+        \\    }
         \\  ]
         \\}
     ;
@@ -279,13 +279,13 @@ test "jsonpath errors" {
         \\  "float": 0.125,
         \\  "int": 25,
         \\  "array": [
-        \\      {
-        \\          "some": {
-        \\              "nested": {
-        \\                  "json": "value"
-        \\              }
-        \\          }
+        \\    {
+        \\      "some": {
+        \\        "nested": {
+        \\          "json": "value"
+        \\        }
         \\      }
+        \\    }
         \\  ]
         \\}
     ;
